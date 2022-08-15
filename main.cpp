@@ -32,15 +32,24 @@ public:
 	virtual void OnRender(void)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-          glPushMatrix();
+	
+
+
+        glPushMatrix();
         if (shader) shader->begin();
+
             miGeomet->Dibujar(0.0, 0.0, 0.0);
             miNatural->DibujarFlor(-3.0, 0.0, 0.0,2,1);
-
+ 
+        if (shader) shader->end();
+        glutSwapBuffers();
         glPopMatrix();
+
         UpdateTimer();
-	    Repaint();
+
+		Repaint();
 	}
+
 
 	virtual void OnIdle() {}
 
